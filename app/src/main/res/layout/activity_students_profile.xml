@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentsProfile">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="24dp"
+        android:layout_height="26dp"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUET Hall Portal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Md. Akram Hossain"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="149dp"
+        android:layout_height="41dp"
+        android:text="Active Resident"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="145dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CSE | 3rd year | 2022-23"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="76dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Student ID: \n2204018"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine3"
+        android:layout_width="74dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Room No.\nSTA-702"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine4"
+        android:layout_width="49dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="CGPA:\n3.00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="215dp" />
+
+    <LinearLayout
+        android:layout_width="417dp"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="63dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="532dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="#A5C5A5">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="25dp"
+                android:layout_height="23dp"
+                app:srcCompat="@android:drawable/ic_dialog_info"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="9dp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="10dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                tools:layout_editor_absoluteX="2dp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="25dp"
+                    android:layout_height="22dp"
+                    app:srcCompat="@android:drawable/ic_dialog_info"
+                    tools:layout_editor_absoluteX="99dp"
+                    tools:layout_editor_absoluteY="6dp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Room"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:layout_editor_absoluteX="132dp"
+                    tools:layout_editor_absoluteY="8dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        app:srcCompat="@android:drawable/ic_dialog_info"
+                        tools:layout_editor_absoluteX="194dp"
+                        tools:layout_editor_absoluteY="6dp" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Meals"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        tools:layout_editor_absoluteX="225dp"
+                        tools:layout_editor_absoluteY="8dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="24dp"
+                            android:layout_height="25dp"
+                            app:srcCompat="@android:drawable/ic_dialog_info"
+                            tools:layout_editor_absoluteX="273dp"
+                            tools:layout_editor_absoluteY="5dp" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Facilities"
+                            tools:layout_editor_absoluteX="306dp"
+                            tools:layout_editor_absoluteY="8dp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="25dp"
+                                android:layout_height="26dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info"
+                                tools:layout_editor_absoluteX="369dp"
+                                tools:layout_editor_absoluteY="5dp" />
+
+                            <TextView
+                                android:id="@+id/textView17"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Complaints"
+                                tools:layout_editor_absoluteX="401dp"
+                                tools:layout_editor_absoluteY="8dp" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
