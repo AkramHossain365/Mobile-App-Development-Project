@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F4F0"
+    android:background="#A6BD8E"
     android:backgroundTint="#F8F6F6"
     android:textAlignment="center"
     android:visibility="visible"
@@ -156,13 +156,12 @@
         tools:layout_editor_absoluteY="696dp" />
 
 
-
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/loading"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>
