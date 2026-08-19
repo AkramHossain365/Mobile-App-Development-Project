@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.SmartHallManagement" parent="Base.Theme.SmartHallManagement" />
+
+    <style name="ProfileImageShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

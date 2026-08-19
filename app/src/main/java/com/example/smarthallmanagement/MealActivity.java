@@ -33,9 +33,7 @@ public class MealActivity extends AppCompatActivity {
 
 
         // Back button
-        toolbarMeal.setNavigationOnClickListener(v -> {
-            finish();
-        });
+        toolbarMeal.setNavigationOnClickListener(v -> finish());
 
 
         // Breakfast button

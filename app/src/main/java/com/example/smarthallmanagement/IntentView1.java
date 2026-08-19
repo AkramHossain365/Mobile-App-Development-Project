@@ -15,7 +15,7 @@ public class IntentView1 extends AppCompatActivity {
     }
 
     public void nevigateURL(View view) {
-        EditText editText = (EditText) findViewById(R.id.urlText);
+        EditText editText = findViewById(R.id.urlText);
         String url = editText.getText().toString();
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
