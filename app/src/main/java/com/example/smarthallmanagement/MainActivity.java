@@ -18,9 +18,8 @@ public class MainActivity extends AppCompatActivity {
     MaterialToolbar toolbar;
     BottomNavigationView bottomNavigation;
 
-    MaterialCardView cardProfile, cardMeal, cardComplaint, cardServices, cardNotice;
-
-    Button btnMeal, btnComplaint, btnNotice;
+    MaterialCardView cardProfile, cardMeal, cardComplaint, cardServices, cardNotice,
+            cardApplications, cardPayment, cardMaintenance, cardNotice2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +45,17 @@ public class MainActivity extends AppCompatActivity {
         cardServices = findViewById(R.id.cardServices);
         cardNotice = findViewById(R.id.cardNotice);
 
-        btnMeal = findViewById(R.id.btnMeal);
-        btnComplaint = findViewById(R.id.btnComplaint);
-        btnNotice = findViewById(R.id.btnNotice);
+        cardApplications = findViewById(R.id.cardApplications);
+        cardPayment = findViewById(R.id.cardPayment);
+        cardMaintenance = findViewById(R.id.cardMaintenance);
+        cardNotice2 = findViewById(R.id.cardNotice2);
 
 
         // Toolbar
+        toolbar.setNavigationOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+        });
+
         toolbar.setOnMenuItemClickListener(item -> {
 
             if (item.getItemId() == R.id.action_notification) {
@@ -78,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.nav_home) {
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
                 return true;
 
             } else if (id == R.id.nav_meal) {
@@ -87,10 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
             } else if (id == R.id.nav_notices) {
                 startActivity(new Intent(MainActivity.this, NoticesActivity.class));
-                return true;
-
-            } else if (id == R.id.nav_more) {
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 return true;
             }
 
@@ -120,20 +119,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, NoticesActivity.class));
         });
 
-
-        // Quick action buttons
-
-        btnMeal.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, MealActivity.class));
+        cardApplications.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ServicesActivity.class));
         });
 
+        cardPayment.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+        });
 
-        btnComplaint.setOnClickListener(v -> {
+        cardMaintenance.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ComplaintActivity.class));
         });
 
-
-        btnNotice.setOnClickListener(v -> {
+        cardNotice2.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, NoticesActivity.class));
         });
 

@@ -1,5 +1,6 @@
 package com.example.smarthallmanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ArrayAdapter;
@@ -7,8 +8,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -16,6 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class ComplaintActivity extends AppCompatActivity {
 
     private MaterialToolbar toolbarComplaint;
+    private BottomNavigationView bottomNavigation;
 
     private AutoCompleteTextView spinnerComplaintCategory;
     private AutoCompleteTextView spinnerComplaintPriority;
@@ -34,6 +39,14 @@ public class ComplaintActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Fullscreen / Hide status bar
+        WindowInsetsControllerCompat windowInsetsController =
+                new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.statusBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
         setContentView(R.layout.activity_complaint);
 
 
@@ -42,6 +55,7 @@ public class ComplaintActivity extends AppCompatActivity {
         // --------------------------------
 
         toolbarComplaint = findViewById(R.id.toolbarComplaint);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
         spinnerComplaintCategory =
                 findViewById(R.id.spinnerComplaintCategory);
@@ -66,6 +80,26 @@ public class ComplaintActivity extends AppCompatActivity {
 
         cardComplaint3 =
                 findViewById(R.id.cardComplaint3);
+
+
+        // --------------------------------
+        // Bottom Navigation
+        // --------------------------------
+
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(ComplaintActivity.this, MainActivity.class));
+                return true;
+            } else if (id == R.id.nav_meal) {
+                startActivity(new Intent(ComplaintActivity.this, MealActivity.class));
+                return true;
+            } else if (id == R.id.nav_notices) {
+                startActivity(new Intent(ComplaintActivity.this, NoticesActivity.class));
+                return true;
+            }
+            return false;
+        });
 
 
         // --------------------------------
@@ -109,8 +143,7 @@ public class ComplaintActivity extends AppCompatActivity {
         String[] priorities = {
                 "Low",
                 "Medium",
-                "High",
-                "Emergency"
+                "High"
         };
 
         ArrayAdapter<String> priorityAdapter =

@@ -1,17 +1,22 @@
 package com.example.smarthallmanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 
 public class NoticesActivity extends AppCompatActivity {
 
     private MaterialToolbar toolbarNotice;
+    private BottomNavigationView bottomNavigation;
 
     private MaterialButton btnAll;
     private MaterialButton btnHall;
@@ -27,10 +32,19 @@ public class NoticesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Fullscreen / Hide status bar
+        WindowInsetsControllerCompat windowInsetsController =
+                new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.statusBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
         setContentView(R.layout.activity_notices);
 
         // Toolbar
         toolbarNotice = findViewById(R.id.toolbarNotice);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
         // Category buttons
         btnAll = findViewById(R.id.btnAll);
@@ -43,6 +57,23 @@ public class NoticesActivity extends AppCompatActivity {
         cardNotice2 = findViewById(R.id.cardNotice2);
         cardNotice3 = findViewById(R.id.cardNotice3);
         cardEmergency = findViewById(R.id.cardEmergency);
+
+
+        // Bottom Navigation
+        bottomNavigation.setSelectedItemId(R.id.nav_notices);
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(NoticesActivity.this, MainActivity.class));
+                return true;
+            } else if (id == R.id.nav_meal) {
+                startActivity(new Intent(NoticesActivity.this, MealActivity.class));
+                return true;
+            } else if (id == R.id.nav_notices) {
+                return true;
+            }
+            return false;
+        });
 
 
         // Back button

@@ -128,6 +128,7 @@
                 android:layout_marginTop="18dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:strokeColor="#0B6B3A"
@@ -212,6 +213,7 @@
                 android:layout_marginTop="12dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
 
@@ -294,6 +296,7 @@
                 android:layout_marginTop="12dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
 
@@ -377,7 +380,7 @@
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="#FFF4F2"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:strokeColor="#D84315"
@@ -420,8 +423,25 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Spacer for Bottom Nav -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

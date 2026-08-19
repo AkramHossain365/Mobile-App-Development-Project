@@ -60,6 +60,7 @@
                 android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp">
 
@@ -123,6 +124,7 @@
                 android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp">
 
@@ -197,6 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp">
 
@@ -257,6 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp">
 
@@ -333,6 +337,7 @@
                 android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp">
 
@@ -381,6 +386,7 @@
                 android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp">
 
@@ -448,10 +454,6 @@
                 android:text="DUET Hall Portal\nVersion 1.0"
                 android:textColor="#999999"
                 android:textSize="12sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="24dp" />
 
         </LinearLayout>
 

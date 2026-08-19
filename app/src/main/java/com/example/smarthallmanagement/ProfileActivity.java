@@ -6,14 +6,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private MaterialToolbar toolbarProfile;
+    private BottomNavigationView bottomNavigation;
 
     private MaterialCardView cardEditProfile;
 
@@ -25,6 +29,14 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Fullscreen / Hide status bar
+        WindowInsetsControllerCompat windowInsetsController =
+                new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.statusBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
         setContentView(R.layout.activity_profile);
 
 
@@ -34,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         toolbarProfile =
                 findViewById(R.id.toolbarProfile);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
         cardEditProfile =
                 findViewById(R.id.cardEditProfile);
@@ -43,6 +56,26 @@ public class ProfileActivity extends AppCompatActivity {
 
         btnLogout =
                 findViewById(R.id.btnLogout);
+
+
+        // =====================================
+        // Bottom Navigation
+        // =====================================
+
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                return true;
+            } else if (id == R.id.nav_meal) {
+                startActivity(new Intent(ProfileActivity.this, MealActivity.class));
+                return true;
+            } else if (id == R.id.nav_notices) {
+                startActivity(new Intent(ProfileActivity.this, NoticesActivity.class));
+                return true;
+            }
+            return false;
+        });
 
 
         // =====================================

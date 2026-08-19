@@ -183,19 +183,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
                 android:text="Submit a Complaint"
-                android:textColor="#222222"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
 
             <!-- Category -->
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Select complaint category"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutComplaintCategory"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:hint="Complaint Category">
 
                 <AutoCompleteTextView
@@ -203,6 +211,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
                     android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -210,12 +220,20 @@
 
             <!-- Subject -->
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Write a subject"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutComplaintSubject"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:hint="Subject">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -223,6 +241,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
                     android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -230,12 +250,20 @@
 
             <!-- Description -->
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Describe your complain"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutComplaintDescription"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:hint="Description">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -243,6 +271,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:gravity="top"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
                     android:inputType="textMultiLine|textCapSentences"
                     android:maxLength="500" />
 
@@ -251,12 +281,20 @@
 
             <!-- Priority -->
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Give priority"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutComplaintPriority"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:hint="Priority">
 
                 <AutoCompleteTextView
@@ -264,6 +302,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
                     android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -302,6 +342,7 @@
                 android:layout_marginTop="12dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
 
@@ -373,6 +414,7 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
 
@@ -444,6 +486,7 @@
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp">
 
@@ -504,9 +547,25 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Spacer for Bottom Nav -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

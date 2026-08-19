@@ -1,16 +1,21 @@
 package com.example.smarthallmanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.card.MaterialCardView;
 
 public class ServicesActivity extends AppCompatActivity {
 
     MaterialToolbar toolbarServices;
+    BottomNavigationView bottomNavigation;
 
     MaterialCardView cardHallOffice;
     MaterialCardView cardRoomSeat;
@@ -36,6 +41,14 @@ public class ServicesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Fullscreen / Hide status bar
+        WindowInsetsControllerCompat windowInsetsController =
+                new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.statusBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
         setContentView(R.layout.activity_services);
 
 
@@ -44,9 +57,30 @@ public class ServicesActivity extends AppCompatActivity {
         // =====================================
 
         toolbarServices = findViewById(R.id.toolbarServices);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
         toolbarServices.setNavigationOnClickListener(v -> {
             finish();
+        });
+
+
+        // =====================================
+        // BOTTOM NAVIGATION
+        // =====================================
+
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(ServicesActivity.this, MainActivity.class));
+                return true;
+            } else if (id == R.id.nav_meal) {
+                startActivity(new Intent(ServicesActivity.this, MealActivity.class));
+                return true;
+            } else if (id == R.id.nav_notices) {
+                startActivity(new Intent(ServicesActivity.this, NoticesActivity.class));
+                return true;
+            }
+            return false;
         });
 
 
