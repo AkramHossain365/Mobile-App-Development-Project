@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#EEF3F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="28dp">
+
+        <!-- Logo -->
+        <FrameLayout
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:gravity="center"
+                android:text="DU"
+                android:textColor="#FFFFFF"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_logo" />
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="bottom|end"
+                android:gravity="center"
+                android:text="ET"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_et_badge" />
+
+        </FrameLayout>
+
+        <!-- Portal Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="18dp"
+            android:text="DUET Hall Portal"
+            android:textColor="#123A68"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="Shaheed Ziaur Rahman Hall · Gazipur"
+            android:textColor="#77828D"
+            android:textSize="16sp" />
+
+        <!-- Login Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_login_card"
+            android:elevation="5dp">
+
+            <!-- Top Accent -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#123A68" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#168A55" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="36dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Sign In"
+                    android:textColor="#202A33"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Enter your DUET student credentials"
+                    android:textColor="#727C86"
+                    android:textSize="16sp" />
+
+                <!-- Student ID Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:text="STUDENT ID"
+                    android:textColor="#505961"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Student ID -->
+                <EditText
+                    android:id="@+id/etStudentId"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="9dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="e.g. 2204010"
+                    android:inputType="number"
+                    android:maxLength="7"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textColor="#29323A"
+                    android:textColorHint="#9AA2A9"
+                    android:textSize="16sp" />
+
+                <!-- Password Label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="PASSWORD"
+                    android:textColor="#505961"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    app:endIconMode="password_toggle"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="28dp"
+                    app:boxCornerRadiusTopEnd="28dp"
+                    app:boxCornerRadiusBottomStart="28dp"
+                    app:boxCornerRadiusBottomEnd="28dp"
+                    app:boxStrokeColor="#E2E6EA"
+                    app:boxBackgroundColor="#F8F9FA">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:hint="Enter your password"
+                        android:inputType="textPassword"
+                        android:paddingStart="18dp"
+                        android:textColor="#29323A"
+                        android:textColorHint="#9AA2A9"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Sign In -->
+                <Button
+                    android:id="@+id/btnSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_signin_button"
+                    android:text="Sign In   →"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="25dp"
+                    android:background="#EDF0F2" />
+
+                <!-- User Info -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:text="Student Information"
+                    android:textColor="#A1A8AE"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_info">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name:  Din Mohammad"
+                        android:textColor="#59636C"
+                        android:textSize="15sp"
+                        android:padding="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Student ID:  2204010"
+                        android:textColor="#59636C"
+                        android:textSize="15sp"
+                        android:padding="5dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:text="Dhaka University of Engineering &amp; Technology, Gazipur"
+            android:textColor="#9AA7B2"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</ScrollView>
