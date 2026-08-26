@@ -12,4 +12,8 @@
         android:id="@+id/nav_notices"
         android:icon="@drawable/ic_notice"
         android:title="Notices" />
+    <item
+        android:id="@+id/nav_complaint"
+        android:icon="@drawable/ic_complaint"
+        android:title="@string/nav_complaints" />
 </menu>

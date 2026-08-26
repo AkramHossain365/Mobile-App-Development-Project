@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Toolbar -->
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarMealHistory"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green_primary"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="Meal History"
+        app:titleTextColor="@android:color/white"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Monthly history -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly Meal History"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+
+            <Spinner
+                android:id="@+id/spinnerMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+
+            <!-- Summary -->
+
+            <TextView
+                android:id="@+id/tvBreakfastCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Breakfast: 0"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+
+            <TextView
+                android:id="@+id/tvLunchCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lunch: 0"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+
+            <TextView
+                android:id="@+id/tvDinnerCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dinner: 0"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+
+            <TextView
+                android:id="@+id/tvOffCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Off meals: 0"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+
+            <!-- History -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily Records"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
+
+
+            <TextView
+                android:id="@+id/tvHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No meal history available."
+                android:textSize="15sp"
+                android:padding="12dp"/>
+
+
+            <!-- 12 month -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12-Month Summary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your meal summary for the last 12 months will be shown here."
+                android:textSize="14sp"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

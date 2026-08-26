@@ -78,6 +78,18 @@
             android:name=".HomeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".MealPlannerActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MealHistoryActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ComplaintDetailsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.example.smarthallmanagement;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -68,20 +67,7 @@ public class ServicesActivity extends AppCompatActivity {
         // BOTTOM NAVIGATION
         // =====================================
 
-        bottomNavigation.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(ServicesActivity.this, MainActivity.class));
-                return true;
-            } else if (id == R.id.nav_meal) {
-                startActivity(new Intent(ServicesActivity.this, MealActivity.class));
-                return true;
-            } else if (id == R.id.nav_notices) {
-                startActivity(new Intent(ServicesActivity.this, NoticesActivity.class));
-                return true;
-            }
-            return false;
-        });
+        NavigationHelper.setupBottomNavigation(this, bottomNavigation);
 
 
         // =====================================

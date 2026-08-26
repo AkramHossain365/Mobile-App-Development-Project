@@ -341,6 +341,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
@@ -413,6 +414,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
@@ -431,6 +433,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/tvComplaint2Category"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -485,6 +488,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
@@ -503,6 +507,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/tvComplaint3Category"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

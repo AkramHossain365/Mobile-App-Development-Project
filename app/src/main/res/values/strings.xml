@@ -11,4 +11,31 @@
     <string name="login_failed">"Login failed"</string>
     <string name="btn_open_calculator">Open Calculator</string>
     <string name="btn_open_intent_view">Open Intent View</string>
+
+    <!-- Complaint Activity -->
+    <string name="complaint_submitted_success">Complaint submitted successfully</string>
+    <string name="complaint_submitted_failed">Failed to submit complaint</string>
+    <string name="error_select_category">Select a category</string>
+    <string name="error_enter_subject">Enter complaint subject</string>
+    <string name="error_enter_description">Enter complaint description</string>
+    <string name="error_select_priority">Select priority</string>
+    <string name="label_submitted_date">Submitted: %1$s</string>
+    <string name="nav_complaints">Complaints</string>
+
+    <!-- Complaint Details -->
+    <string name="complaint_id_format">Complaint #%1$d</string>
+    <string name="current_status_format">Current Status: %1$s</string>
+    <string name="label_category">Category</string>
+    <string name="label_subject">Subject</string>
+    <string name="label_description">Description</string>
+    <string name="label_priority">Priority</string>
+    <string name="label_submitted">Submitted</string>
+    <string name="btn_update_status">Update Complaint Status</string>
+    <string name="hint_update_status">Update Status</string>
+    <string name="msg_select_status">Select a status</string>
+    <string name="msg_status_updated">Complaint status updated</string>
+    <string name="msg_update_failed">Unable to update complaint</string>
+
+    <!-- Dashboard -->
+    <string name="pending_complaints_format">%1$d Pending</string>
 </resources>

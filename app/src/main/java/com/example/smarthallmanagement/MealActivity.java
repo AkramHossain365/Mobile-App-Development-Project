@@ -1,6 +1,7 @@
 package com.example.smarthallmanagement;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -22,19 +23,33 @@ public class MealActivity extends AppCompatActivity {
     private Button btnDinner;
     private Button btnMealHistory;
 
+    private MealDatabaseHelper mealDatabaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Fullscreen / Hide status bar
         WindowInsetsControllerCompat windowInsetsController =
-                new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
-        windowInsetsController.hide(WindowInsetsCompat.Type.statusBars());
+                new WindowInsetsControllerCompat(
+                        getWindow(),
+                        getWindow().getDecorView()
+                );
+
+        windowInsetsController.hide(
+                WindowInsetsCompat.Type.statusBars()
+        );
+
         windowInsetsController.setSystemBarsBehavior(
-                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                WindowInsetsControllerCompat
+                        .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
 
         setContentView(R.layout.activity_meal);
+
+        // Initialize database
+        mealDatabaseHelper =
+                new MealDatabaseHelper(this);
 
         // Initialize views
         toolbarMeal = findViewById(R.id.toolbarMeal);
@@ -45,74 +60,96 @@ public class MealActivity extends AppCompatActivity {
         btnDinner = findViewById(R.id.btnDinner);
         btnMealHistory = findViewById(R.id.btnMealHistory);
 
-
         // Bottom Navigation
-        bottomNavigation.setSelectedItemId(R.id.nav_meal);
-        bottomNavigation.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(MealActivity.this, MainActivity.class));
-                return true;
-            } else if (id == R.id.nav_meal) {
-                return true;
-            } else if (id == R.id.nav_notices) {
-                startActivity(new Intent(MealActivity.this, NoticesActivity.class));
-                return true;
-            }
-            return false;
-        });
+        // ---------------------------------------------------------
 
+        if (bottomNavigation != null) {
+            bottomNavigation.setSelectedItemId(R.id.nav_meal);
+            NavigationHelper.setupBottomNavigation(this, bottomNavigation);
+        }
 
+        // ---------------------------------------------------------
         // Back button
-        toolbarMeal.setNavigationOnClickListener(v -> finish());
+        // ---------------------------------------------------------
 
+        toolbarMeal.setNavigationOnClickListener(
+                v -> finish()
+        );
 
-        // Breakfast button
+        // ---------------------------------------------------------
+        // Breakfast
+        // ---------------------------------------------------------
+
         btnBreakfast.setOnClickListener(v -> {
 
-            Toast.makeText(
-                    MealActivity.this,
-                    "Breakfast already taken",
-                    Toast.LENGTH_SHORT
-            ).show();
+            openMealPlanner("breakfast");
 
         });
 
+        // ---------------------------------------------------------
+        // Lunch
+        // ---------------------------------------------------------
 
-        // Lunch button
         btnLunch.setOnClickListener(v -> {
 
-            Toast.makeText(
-                    MealActivity.this,
-                    "Lunch selected",
-                    Toast.LENGTH_SHORT
-            ).show();
+            openMealPlanner("lunch");
 
         });
 
+        // ---------------------------------------------------------
+        // Dinner
+        // ---------------------------------------------------------
 
-        // Dinner button
         btnDinner.setOnClickListener(v -> {
 
-            Toast.makeText(
-                    MealActivity.this,
-                    "Dinner selected",
-                    Toast.LENGTH_SHORT
-            ).show();
+            openMealPlanner("dinner");
 
         });
 
+        // ---------------------------------------------------------
+        // Meal History
+        // ---------------------------------------------------------
 
-        // Meal history
         btnMealHistory.setOnClickListener(v -> {
 
-            Toast.makeText(
-                    MealActivity.this,
-                    "Opening meal history...",
-                    Toast.LENGTH_SHORT
-            ).show();
+            Intent intent =
+                    new Intent(
+                            MealActivity.this,
+                            MealHistoryActivity.class
+                    );
+
+            startActivity(intent);
 
         });
+    }
 
+    // ---------------------------------------------------------
+    // OPEN MEAL PLANNER
+    // ---------------------------------------------------------
+
+    private void openMealPlanner(String mealType) {
+
+        Intent intent =
+                new Intent(
+                        MealActivity.this,
+                        MealPlannerActivity.class
+                );
+
+        intent.putExtra(
+                "meal_type",
+                mealType
+        );
+
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        if (mealDatabaseHelper != null) {
+            mealDatabaseHelper.close();
+        }
+
+        super.onDestroy();
     }
 }

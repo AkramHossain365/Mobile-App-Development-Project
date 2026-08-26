@@ -3,6 +3,7 @@ package com.example.smarthallmanagement;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialCardView cardProfile, cardMeal, cardComplaint, cardServices, cardNotice,
             cardApplications, cardPayment, cardMaintenance, cardNotice2;
+
+    TextView tvComplaint;
+    ComplaintDatabaseHelper complaintDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
+        if (toolbar == null || bottomNavigation == null) {
+            Toast.makeText(this, "UI Initialization failed", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         cardProfile = findViewById(R.id.cardProfile);
         cardMeal = findViewById(R.id.cardMeal);
         cardComplaint = findViewById(R.id.cardComplaint);
@@ -49,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
         cardPayment = findViewById(R.id.cardPayment);
         cardMaintenance = findViewById(R.id.cardMaintenance);
         cardNotice2 = findViewById(R.id.cardNotice2);
+
+        tvComplaint = findViewById(R.id.tvComplaint);
+
+        try {
+            complaintDb = new ComplaintDatabaseHelper(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         // Toolbar
@@ -77,63 +94,81 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigation.setOnItemSelectedListener(item -> {
-
-            int id = item.getItemId();
-
-            if (id == R.id.nav_home) {
-                return true;
-
-            } else if (id == R.id.nav_meal) {
-                startActivity(new Intent(MainActivity.this, MealActivity.class));
-                return true;
-
-            } else if (id == R.id.nav_notices) {
-                startActivity(new Intent(MainActivity.this, NoticesActivity.class));
-                return true;
-            }
-
-            return false;
-        });
+        NavigationHelper.setupBottomNavigation(this, bottomNavigation);
 
 
         // Insight Card Clicks
 
-        cardProfile.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-        });
+        if (cardProfile != null) {
+            cardProfile.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            });
+        }
 
-        cardMeal.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, MealActivity.class));
-        });
+        if (cardMeal != null) {
+            cardMeal.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, MealActivity.class));
+            });
+        }
 
-        cardComplaint.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ComplaintActivity.class));
-        });
+        if (cardComplaint != null) {
+            cardComplaint.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, ComplaintActivity.class));
+            });
+        }
 
-        cardServices.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ServicesActivity.class));
-        });
+        if (cardServices != null) {
+            cardServices.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, ServicesActivity.class));
+            });
+        }
 
-        cardNotice.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, NoticesActivity.class));
-        });
+        if (cardNotice != null) {
+            cardNotice.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, NoticesActivity.class));
+            });
+        }
 
-        cardApplications.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ServicesActivity.class));
-        });
+        if (cardApplications != null) {
+            cardApplications.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, ServicesActivity.class));
+            });
+        }
 
-        cardPayment.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-        });
+        if (cardPayment != null) {
+            cardPayment.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            });
+        }
 
-        cardMaintenance.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ComplaintActivity.class));
-        });
+        if (cardMaintenance != null) {
+            cardMaintenance.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, ComplaintActivity.class));
+            });
+        }
 
-        cardNotice2.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, NoticesActivity.class));
-        });
+        if (cardNotice2 != null) {
+            cardNotice2.setOnClickListener(v -> {
+                startActivity(new Intent(MainActivity.this, NoticesActivity.class));
+            });
+        }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (complaintDb != null && tvComplaint != null) {
+            int pending = complaintDb.getComplaintsCount("Pending");
+            tvComplaint.setText(getString(R.string.pending_complaints_format, pending));
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (complaintDb != null) {
+            complaintDb.close();
+        }
+        super.onDestroy();
     }
 }

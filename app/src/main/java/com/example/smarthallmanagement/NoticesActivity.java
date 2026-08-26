@@ -1,6 +1,5 @@
 package com.example.smarthallmanagement;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -60,20 +59,10 @@ public class NoticesActivity extends AppCompatActivity {
 
 
         // Bottom Navigation
-        bottomNavigation.setSelectedItemId(R.id.nav_notices);
-        bottomNavigation.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(NoticesActivity.this, MainActivity.class));
-                return true;
-            } else if (id == R.id.nav_meal) {
-                startActivity(new Intent(NoticesActivity.this, MealActivity.class));
-                return true;
-            } else if (id == R.id.nav_notices) {
-                return true;
-            }
-            return false;
-        });
+        if (bottomNavigation != null) {
+            bottomNavigation.setSelectedItemId(R.id.nav_notices);
+            NavigationHelper.setupBottomNavigation(this, bottomNavigation);
+        }
 
 
         // Back button

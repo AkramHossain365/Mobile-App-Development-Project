@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Toolbar -->
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarMealPlanner"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green_primary"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="Meal Plan"
+        app:titleTextColor="@android:color/white"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Calendar -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select meal date"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <CalendarView
+                android:id="@+id/calendarMeal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <!-- Selected date -->
+
+            <TextView
+                android:id="@+id/tvSelectedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selected date"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"/>
+
+
+            <!-- Cutoff -->
+
+            <TextView
+                android:id="@+id/tvCutoff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Meal selection deadline"
+                android:textSize="13sp"
+                android:padding="12dp"/>
+
+
+            <!-- Breakfast -->
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchBreakfast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Breakfast"
+                android:textSize="16sp"
+                android:checked="true"
+                android:padding="8dp"/>
+
+
+            <!-- Lunch -->
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchLunch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lunch"
+                android:textSize="16sp"
+                android:checked="true"
+                android:padding="8dp"/>
+
+
+            <!-- Dinner -->
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchDinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dinner"
+                android:textSize="16sp"
+                android:checked="true"
+                android:padding="8dp"/>
+
+
+            <!-- Save -->
+
+            <Button
+                android:id="@+id/btnSaveMeal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Meal Plan"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
