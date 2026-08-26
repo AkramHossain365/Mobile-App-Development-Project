@@ -1,6 +1,7 @@
 package com.example.smarthallmanagement;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
 
         // Fullscreen / Hide status bar
         WindowInsetsControllerCompat windowInsetsController =
@@ -40,8 +42,6 @@ public class SettingsActivity extends AppCompatActivity {
         windowInsetsController.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
-
-        setContentView(R.layout.activity_settings);
 
 
         // ==============================
@@ -239,26 +239,25 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void logoutUser() {
 
+        SharedPreferences preferences =
+                getSharedPreferences(
+                        "SmartHallPreferences",
+                        MODE_PRIVATE
+                );
+
+        preferences.edit()
+                .clear()
+                .apply();
+
         Toast.makeText(
                 SettingsActivity.this,
                 "Logged out successfully",
                 Toast.LENGTH_SHORT
         ).show();
 
-
-        /*
-         * Later, when you add real login:
-         *
-         * SharedPreferences preferences =
-         *         getSharedPreferences("UserSession", MODE_PRIVATE);
-         *
-         * preferences.edit().clear().apply();
-         */
-
-
         Intent intent = new Intent(
                 SettingsActivity.this,
-                MainActivity.class
+                LoginActivity.class
         );
 
         intent.setFlags(

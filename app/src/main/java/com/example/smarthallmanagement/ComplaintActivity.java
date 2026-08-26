@@ -47,6 +47,7 @@ public class ComplaintActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_complaint);
 
         // Fullscreen / Hide status bar
         WindowInsetsControllerCompat windowInsetsController =
@@ -62,10 +63,6 @@ public class ComplaintActivity extends AppCompatActivity {
         windowInsetsController.setSystemBarsBehavior(
                 WindowInsetsControllerCompat
                         .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        );
-
-        setContentView(
-                R.layout.activity_complaint
         );
 
 

@@ -30,6 +30,7 @@ public class NoticesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_notices);
 
         // Fullscreen / Hide status bar
         WindowInsetsControllerCompat windowInsetsController =
@@ -38,8 +39,6 @@ public class NoticesActivity extends AppCompatActivity {
         windowInsetsController.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
-
-        setContentView(R.layout.activity_notices);
 
         // Toolbar
         toolbarNotice = findViewById(R.id.toolbarNotice);

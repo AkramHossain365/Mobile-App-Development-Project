@@ -28,6 +28,7 @@ public class MealActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_meal);
 
         // Fullscreen / Hide status bar
         WindowInsetsControllerCompat windowInsetsController =
@@ -44,8 +45,6 @@ public class MealActivity extends AppCompatActivity {
                 WindowInsetsControllerCompat
                         .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
-
-        setContentView(R.layout.activity_meal);
 
         // Initialize database
         mealDatabaseHelper =

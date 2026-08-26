@@ -38,6 +38,9 @@ public class MealHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(
+                R.layout.activity_meal_history
+        );
 
         WindowInsetsControllerCompat controller =
                 new WindowInsetsControllerCompat(
@@ -52,10 +55,6 @@ public class MealHistoryActivity extends AppCompatActivity {
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat
                         .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        );
-
-        setContentView(
-                R.layout.activity_meal_history
         );
 
         database =

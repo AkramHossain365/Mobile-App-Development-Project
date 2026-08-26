@@ -37,6 +37,9 @@ public class ComplaintDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(
+                R.layout.activity_complaint_details
+        );
 
         WindowInsetsControllerCompat controller =
                 new WindowInsetsControllerCompat(
@@ -51,10 +54,6 @@ public class ComplaintDetailsActivity extends AppCompatActivity {
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat
                         .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        );
-
-        setContentView(
-                R.layout.activity_complaint_details
         );
 
         database =

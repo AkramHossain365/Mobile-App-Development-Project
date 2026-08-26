@@ -1,0 +1,3 @@
+- `[x]` Bump `DATABASE_VERSION` and improve `insertApplication` in `ApplicationDatabaseHelper.java`
+- `[x]` Add error handling to `submitApplication` in `ApplicationFormActivity.java`
+- `[x]` Run build to verify changes

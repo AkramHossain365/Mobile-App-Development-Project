@@ -1,5 +1,6 @@
 package com.example.smarthallmanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -24,7 +25,6 @@ public class ServicesActivity extends AppCompatActivity {
     MaterialCardView cardMeal;
     MaterialCardView cardCanteen;
 
-    MaterialCardView cardMaintenance;
     MaterialCardView cardElectricity;
     MaterialCardView cardWater;
     MaterialCardView cardInternet;
@@ -39,6 +39,7 @@ public class ServicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_services);
 
         // Fullscreen / Hide status bar
         WindowInsetsControllerCompat windowInsetsController =
@@ -47,8 +48,6 @@ public class ServicesActivity extends AppCompatActivity {
         windowInsetsController.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
-
-        setContentView(R.layout.activity_services);
 
 
         // =====================================
@@ -102,9 +101,11 @@ public class ServicesActivity extends AppCompatActivity {
 
         cardApplications.setOnClickListener(v -> {
 
-            showMessage(
-                    "Applications",
-                    "Hall application service selected."
+            startActivity(
+                    new Intent(
+                            ServicesActivity.this,
+                            ApplicationActivity.class
+                    )
             );
 
         });
@@ -112,9 +113,11 @@ public class ServicesActivity extends AppCompatActivity {
 
         cardPayment.setOnClickListener(v -> {
 
-            showMessage(
-                    "Hall Payment",
-                    "Hall payment service selected."
+            startActivity(
+                    new Intent(
+                            ServicesActivity.this,
+                            PaymentActivity.class
+                    )
             );
 
         });
@@ -130,9 +133,11 @@ public class ServicesActivity extends AppCompatActivity {
 
         cardMeal.setOnClickListener(v -> {
 
-            showMessage(
-                    "Meal",
-                    "Meal management selected."
+            startActivity(
+                    new Intent(
+                            ServicesActivity.this,
+                            MealActivity.class
+                    )
             );
 
         });
@@ -152,7 +157,6 @@ public class ServicesActivity extends AppCompatActivity {
         // FACILITIES & MAINTENANCE
         // =====================================
 
-        cardMaintenance = findViewById(R.id.cardMaintenance);
         cardElectricity = findViewById(R.id.cardElectricity);
         cardWater = findViewById(R.id.cardWater);
         cardInternet = findViewById(R.id.cardInternet);
@@ -162,14 +166,6 @@ public class ServicesActivity extends AppCompatActivity {
         cardWaste = findViewById(R.id.cardWaste);
 
 
-        cardMaintenance.setOnClickListener(v -> {
-
-            showMessage(
-                    "Maintenance",
-                    "Maintenance service selected."
-            );
-
-        });
 
 
         cardElectricity.setOnClickListener(v -> {

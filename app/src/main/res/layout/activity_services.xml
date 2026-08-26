@@ -425,53 +425,6 @@
                 android:columnCount="2">
 
 
-                <!-- Maintenance -->
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardMaintenance"
-                    android:layout_width="0dp"
-                    android:layout_height="140dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#FFF3E0"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_settings"
-                            android:contentDescription="Maintenance" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Maintenance"
-                            android:textColor="#222222"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Repair requests"
-                            android:textColor="#888888"
-                            android:textSize="11sp" />
-
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
 
 
                 <!-- Electricity -->
